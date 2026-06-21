@@ -6,7 +6,7 @@ import pygame.transform
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.const import WINDOW_WIDTH, COLOR_YELLOW, MENU_OPTIONS, COLOR_WHITE
+from code.const import WINDOW_WIDTH, COLOR_YELLOW, MENU_OPTIONS, COLOR_WHITE, COLOR_GREEN
 
 
 class Menu:
@@ -45,6 +45,8 @@ class Menu:
 
             self.menu_text(50, "Caramel", COLOR_YELLOW, (WINDOW_WIDTH / 2, 80))
             self.menu_text(50, "Game", COLOR_YELLOW, (WINDOW_WIDTH / 2, 130))
+            self.menu_text(18, "Press Space to play", COLOR_GREEN, (WINDOW_WIDTH / 2, 280))
+
 
             for i in range(len(MENU_OPTIONS)):
                 self.menu_text(
