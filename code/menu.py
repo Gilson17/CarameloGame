@@ -6,7 +6,7 @@ import pygame.transform
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.const import WINDOW_WIDTH, COLOR_YELLOW, MENU_OPTIONS, COLOR_WHITE, COLOR_GREEN
+from code.const import WINDOW_WIDTH, COLOR_YELLOW, MENU_OPTIONS, COLOR_WHITE, COLOR_GREEN, VIRTUAL_WIDTH, VIRTUAL_HEIGHT
 
 
 class Menu:
@@ -16,15 +16,15 @@ class Menu:
         image = pygame.image.load("./asset/City1.png").convert()
 
         window_width, window_height = self.window.get_size()
-        image_width, image_height = image.get_size()
+
 
         scale = min(
-            window_width / image_width,
-            window_height / image_height
+            window_width / VIRTUAL_WIDTH,
+            window_height / VIRTUAL_HEIGHT
         )
 
-        new_width = int(image_width * scale)
-        new_height = int(image_height * scale)
+        new_width = int(image.get_width() * scale)
+        new_height = int(image.get_height() * scale)
 
         self.surf = pygame.transform.smoothscale(
             image,
@@ -36,9 +36,11 @@ class Menu:
         )
 
     def run(self):
+        menu_option = 0
         pygame.mixer.music.load('./asset/menu song.wav')
         pygame.mixer.music.play(-1)
 
+        #DRAW IMAGES
         while True:
 
             self.window.blit(self.surf, self.rect)
@@ -47,14 +49,14 @@ class Menu:
             self.menu_text(50, "Game", COLOR_YELLOW, (WINDOW_WIDTH / 2, 130))
             self.menu_text(18, "Press Space to play", COLOR_GREEN, (WINDOW_WIDTH / 2, 280))
 
-
+            #CHECK ALL EVENTS
             for i in range(len(MENU_OPTIONS)):
-                self.menu_text(
-                    20,
-                    MENU_OPTIONS[i],
-                    COLOR_WHITE,
-                    (WINDOW_WIDTH / 2, 180 + 30 * i)
-                )
+
+                if i == menu_option:
+                    self.menu_text(20, MENU_OPTIONS[i], COLOR_GREEN, (WINDOW_WIDTH / 2, 180 + 30 * i))
+
+                else:
+                    self.menu_text(20, MENU_OPTIONS[i], COLOR_WHITE, (WINDOW_WIDTH / 2, 180 + 30 * i))
 
             pygame.display.flip()
 
@@ -62,10 +64,28 @@ class Menu:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_DOWN:
+                        if menu_option < len(MENU_OPTIONS) - 1:
+                            menu_option += 1
+                        else:
+                            menu_option = 0
+                    if event.key == pygame.K_UP:
+                        if menu_option > 0:
+                            menu_option -= 1
+                        else:
+                            menu_option = len(MENU_OPTIONS) - 1
+                    if event.key == pygame.K_SPACE:
+                        return MENU_OPTIONS[menu_option]
+
+
+
+
+
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(
-            name="Comic Sans MS",
+            name="Impact",
             size=text_size
         )
 
