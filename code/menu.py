@@ -13,7 +13,7 @@ class Menu:
     def __init__(self, window):
         self.window = window
 
-        image = pygame.image.load("./asset/City1.png").convert()
+        image = pygame.image.load("./asset/City1.png").convert_alpha()
 
         window_width, window_height = self.window.get_size()
 
