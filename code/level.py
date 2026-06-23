@@ -10,6 +10,7 @@ from code import entityFactory, entity
 from code.const import VIRTUAL_WIDTH, VIRTUAL_HEIGHT, COLOR_WHITE, WINDOW_HEIGHT, COLOR_GREEN, ENEMY_EVENT, SPAWN_TIME
 from code.entity import Entity
 from code.entityFactory import EntityFactory
+from code.entityMediator import EntityMediator
 
 
 class Level:
@@ -66,6 +67,9 @@ class Level:
             self.level_text(15, f'entity: {len(self.entity_list)}', COLOR_WHITE, (10, WINDOW_HEIGHT - 20))
 
             pygame.display.flip()
+
+            EntityMediator.verify_interation(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Impact", size=text_size)

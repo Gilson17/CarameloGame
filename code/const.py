@@ -8,6 +8,19 @@ COLOR_GREEN = (0, 255, 0)
 #E
 ENEMY_EVENT = pygame.USEREVENT
 
+ENTITY_HEALTH = {
+    'City1Bg0':999,
+    'City1Bg1':999,
+    'City1Bg2':999,
+    'City1Bg3':999,
+    'City1Bg4':999,
+    'City1Bg5':999,
+    'City1Bg6':999,
+    'Walk': 1,
+    'Object1':1,
+    'Object2':1,
+}
+
 ENTITY_SPEED = {
     'City1Bg0': 0,
     'City1Bg1': 3,
