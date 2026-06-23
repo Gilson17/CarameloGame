@@ -7,10 +7,11 @@ from pygame import Surface
 from pygame.font import Font
 
 from code import entityFactory, entity
-from code.const import VIRTUAL_WIDTH, VIRTUAL_HEIGHT, COLOR_WHITE, WINDOW_HEIGHT, COLOR_GREEN, ENEMY_EVENT, SPAWN_TIME
+from code.const import VIRTUAL_WIDTH, VIRTUAL_HEIGHT, C_WHITE, WINDOW_HEIGHT, C_GREEN, ENEMY_EVENT, SPAWN_TIME, C_ORANGE
 from code.entity import Entity
 from code.entityFactory import EntityFactory
 from code.entityMediator import EntityMediator
+from code.player import Player
 
 
 class Level:
@@ -23,7 +24,7 @@ class Level:
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('City1Bg'))
         self.entity_list.append(EntityFactory.get_entity('Walk'))
-        pygame.time.set_timer(ENEMY_EVENT,SPAWN_TIME)
+        pygame.time.set_timer(ENEMY_EVENT, SPAWN_TIME)
 
         self.camera_x = 0
         self.camera_y = 0
@@ -63,8 +64,13 @@ class Level:
 
             self.window.blit(scaled_surface, (0, 0))
 
-            self.level_text(20, f'fps:{clock.get_fps():.0f}', COLOR_WHITE, (10, 5))
-            self.level_text(15, f'entity: {len(self.entity_list)}', COLOR_WHITE, (10, WINDOW_HEIGHT - 20))
+            self.level_text(20, f'fps:{clock.get_fps():.0f}', C_WHITE, (10, 5))
+            self.level_text(15, f'entity: {len(self.entity_list)}', C_WHITE, (10, WINDOW_HEIGHT - 20))
+
+            for ent in self.entity_list:
+                if isinstance(ent, Player):
+                    self.level_text(20, f'score: {ent.score}', C_ORANGE, (window_size[0] - 120, 5))
+                    break
 
             pygame.display.flip()
 

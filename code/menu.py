@@ -6,7 +6,7 @@ import pygame.transform
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.const import WINDOW_WIDTH, COLOR_YELLOW, MENU_OPTIONS, COLOR_WHITE, COLOR_GREEN, VIRTUAL_WIDTH, VIRTUAL_HEIGHT
+from code.const import WINDOW_WIDTH, C_YELLOW, MENU_OPTIONS, C_WHITE, C_GREEN, VIRTUAL_WIDTH, VIRTUAL_HEIGHT
 
 
 class Menu:
@@ -45,18 +45,18 @@ class Menu:
 
             self.window.blit(self.surf, self.rect)
 
-            self.menu_text(50, "Caramel", COLOR_YELLOW, (WINDOW_WIDTH / 2, 80))
-            self.menu_text(50, "Game", COLOR_YELLOW, (WINDOW_WIDTH / 2, 130))
-            self.menu_text(18, "Press Space to play", COLOR_GREEN, (WINDOW_WIDTH / 2, 280))
+            self.menu_text(50, "Caramel", C_YELLOW, (WINDOW_WIDTH / 2, 80))
+            self.menu_text(50, "Game", C_YELLOW, (WINDOW_WIDTH / 2, 130))
+            self.menu_text(18, "Press Space to play", C_GREEN, (WINDOW_WIDTH / 2, 280))
 
             #CHECK ALL EVENTS
             for i in range(len(MENU_OPTIONS)):
 
                 if i == menu_option:
-                    self.menu_text(20, MENU_OPTIONS[i], COLOR_GREEN, (WINDOW_WIDTH / 2, 180 + 30 * i))
+                    self.menu_text(20, MENU_OPTIONS[i], C_GREEN, (WINDOW_WIDTH / 2, 180 + 30 * i))
 
                 else:
-                    self.menu_text(20, MENU_OPTIONS[i], COLOR_WHITE, (WINDOW_WIDTH / 2, 180 + 30 * i))
+                    self.menu_text(20, MENU_OPTIONS[i], C_WHITE, (WINDOW_WIDTH / 2, 180 + 30 * i))
 
             pygame.display.flip()
 

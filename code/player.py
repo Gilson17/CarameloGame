@@ -19,6 +19,7 @@ class Player(Entity):
         self.jump_strength = -35
         self.ground_y = position[1]
         self.current_frame = 'RUN'
+        self.score = 0
         self.on_ground = True
 
         self.scale = 8
@@ -73,6 +74,8 @@ class Player(Entity):
             self.surf = self.frames[self.current_frame]
         else:
             self.surf = self.jump_frames[self.current_frame]
+
+        self.mask = pygame.mask.from_surface(self.surf)
 
     def move(self):
 
