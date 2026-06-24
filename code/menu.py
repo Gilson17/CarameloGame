@@ -17,22 +17,13 @@ class Menu:
 
         window_width, window_height = self.window.get_size()
 
-
-        scale = min(
-            window_width / VIRTUAL_WIDTH,
-            window_height / VIRTUAL_HEIGHT
-        )
-
-        new_width = int(image.get_width() * scale)
-        new_height = int(image.get_height() * scale)
-
         self.surf = pygame.transform.smoothscale(
             image,
-            (new_width, new_height)
+            (window_width, window_height)
         )
 
         self.rect = self.surf.get_rect(
-            center=(window_width // 2, window_height // 2)
+            topleft=(0, 0)
         )
 
     def run(self):
@@ -40,7 +31,7 @@ class Menu:
         pygame.mixer.music.load('./asset/menu song.wav')
         pygame.mixer.music.play(-1)
 
-        #DRAW IMAGES
+        # DRAW IMAGES
         while True:
 
             self.window.blit(self.surf, self.rect)
@@ -49,7 +40,7 @@ class Menu:
             self.menu_text(50, "Game", C_YELLOW, (WINDOW_WIDTH / 2, 130))
             self.menu_text(18, "Press Space to play", C_GREEN, (WINDOW_WIDTH / 2, 280))
 
-            #CHECK ALL EVENTS
+            # CHECK ALL EVENTS
             for i in range(len(MENU_OPTIONS)):
 
                 if i == menu_option:
@@ -77,11 +68,6 @@ class Menu:
                             menu_option = len(MENU_OPTIONS) - 1
                     if event.key == pygame.K_SPACE:
                         return MENU_OPTIONS[menu_option]
-
-
-
-
-
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
         text_font: Font = pygame.font.SysFont(

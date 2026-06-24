@@ -72,6 +72,21 @@ class Level:
                     self.level_text(20, f'score: {ent.score}', C_ORANGE, (window_size[0] - 120, 5))
                     break
 
+            EntityMediator.verify_interation(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
+
+
+            player_alive = False
+            for ent in self.entity_list:
+                if isinstance(ent, Player):
+                    player_alive = True
+                    self.last_score = ent.score
+                    break
+
+            if not player_alive:
+                return self.last_score
+
+
             pygame.display.flip()
 
             EntityMediator.verify_interation(entity_list=self.entity_list)

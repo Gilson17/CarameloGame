@@ -25,11 +25,11 @@ class EntityMediator:
 
     @staticmethod
     def __give_score(enemy: Enemy, entity_list: list[Entity]):
-        # Procura o Player dentro da lista de entidades ativas
+
         for ent in entity_list:
             if isinstance(ent, Player):
-                ent.score += 1  # Adiciona 1 ponto ao jogador
-                break  # Encontrou o player, pode parar o loop
+                ent.score += 1
+                break
 
     @staticmethod
     def verify_interation(entity_list: list[Entity]):
