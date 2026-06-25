@@ -16,7 +16,7 @@ class Player(Entity):
         self.frame_count = 3
         self.velocity_y = 0
         self.gravity = 1
-        self.jump_strength = -35
+        self.jump_strength = -30
         self.ground_y = position[1]
         self.current_frame = 'RUN'
         self.score = 0

@@ -59,8 +59,8 @@ ENTITY_SPEED = {
     'City1Bg4': 6,
     'City1Bg5': 7,
     'City1Bg6': 8,
-    'Object1':13,
-    'Object2':13,
+    'Object1':15,
+    'Object2':15,
 }
 
 #M
