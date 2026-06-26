@@ -10,6 +10,7 @@ C_ORANGE = (255, 128, 0)
 #E
 ENEMY_EVENT = pygame.USEREVENT
 
+
 ENTITY_SCORE ={
     'City1Bg0': 0,
     'City1Bg1': 0,
@@ -71,6 +72,9 @@ MENU_OPTIONS = ('PLAY',
 #S
 
 SPAWN_TIME = 8000
+SPEED_EVENT = pygame.USEREVENT +1
+
+BONUS_SPEED = 0
 
 SCORE_POS = {
     'Title': (WINDOW_WIDTH / 2, 50),

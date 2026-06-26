@@ -1,21 +1,15 @@
 import pygame
-
 from code.Score import Score
 from code.const import WINDOW_WIDTH, WINDOW_HEIGHT, MENU_OPTIONS
 from code.level import Level
 from code.menu import Menu
 
-
 class Game:
     def __init__(self):
         pygame.init()
-
         self.window_width = WINDOW_WIDTH
         self.window_height = WINDOW_HEIGHT
-
-        self.window = pygame.display.set_mode(
-            (self.window_width, self.window_height))
-
+        self.window = pygame.display.set_mode((self.window_width, self.window_height))
         self.menu = Menu(self.window)
 
     def run(self):
@@ -30,12 +24,10 @@ class Game:
                 level_return = level.run()
 
 
+                if isinstance(level_return, tuple):
+                    status, player_score = level_return
 
-                if isinstance(level_return, int):
-                    player_score = [level_return]
-                    score.save_score(menu_return, player_score)
-                    score.show_score(player_score)
-
+                    score.show_score(current_game_data=(status, player_score))
 
             elif menu_return == MENU_OPTIONS[1]:
                 score.show_score()
@@ -43,5 +35,3 @@ class Game:
             elif menu_return == MENU_OPTIONS[2]:
                 pygame.quit()
                 quit()
-            else:
-                pass
