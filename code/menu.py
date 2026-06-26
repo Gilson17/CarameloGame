@@ -8,7 +8,7 @@ import pygame.transform
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.const import WINDOW_WIDTH, C_YELLOW, MENU_OPTIONS, C_WHITE, C_GREEN
+from code.const import WINDOW_WIDTH, C_YELLOW, MENU_OPTIONS, C_WHITE, C_GREEN, C_ORANGE
 
 
 class Menu:
@@ -42,6 +42,7 @@ class Menu:
             self.menu_text(50, "Caramel", C_YELLOW, (WINDOW_WIDTH / 2, 80))
             self.menu_text(50, "Game", C_YELLOW, (WINDOW_WIDTH / 2, 130))
             self.menu_text(18, "Press Space to play", C_GREEN, (WINDOW_WIDTH / 2, 280))
+            self.menu_text(18, "Space - JUMP", C_GREEN, (WINDOW_WIDTH / 2, 320))
 
             # CHECK ALL EVENTS
             for i in range(len(MENU_OPTIONS)):
