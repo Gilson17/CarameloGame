@@ -83,7 +83,7 @@ class Level:
             self.level_text(20, f'{self.name} - Timeout: {self.timeout / 1000 :.1f}s', C_WHITE,
                             (WINDOW_HEIGHT - 120, 5))
             self.level_text(20, f'fps:{clock.get_fps():.0f}', C_WHITE, (10, 5))
-            self.level_text(15, f'entity: {len(self.entity_list)}', C_WHITE, (10, WINDOW_HEIGHT - 20))
+
 
             for ent in self.entity_list:
                 if isinstance(ent, Player):
