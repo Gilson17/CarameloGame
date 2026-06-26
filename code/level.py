@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
 import random
 import pygame
 from pygame import Surface
@@ -39,6 +40,7 @@ class Level:
         clock = pygame.time.Clock()
         pygame.mixer_music.load('./asset/background song.mp3')
         pygame.mixer_music.play(-1)
+        pygame.mixer_music.set_volume(0.3)
 
         while True:
             dt = clock.tick(60)
@@ -55,7 +57,7 @@ class Level:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    exit()
+                    sys.exit()
 
                 if event.type == ENEMY_EVENT:
                     choice = random.choice(('Object1', 'Object2'))

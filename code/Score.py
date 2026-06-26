@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
@@ -40,7 +42,7 @@ class Score:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN and len(name) > 0:
                         return name.upper()
@@ -52,6 +54,8 @@ class Score:
     def show_score(self, current_game_data=None):
         pygame.mixer.music.load('./asset/ScoreMusic.ogg')
         pygame.mixer_music.play(-1)
+        pygame.mixer_music.set_volume(0.3)
+
 
         if current_game_data is not None:
             status, pontos = current_game_data
@@ -75,7 +79,7 @@ class Score:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    exit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key in (pygame.K_ESCAPE, pygame.K_SPACE):
                         return

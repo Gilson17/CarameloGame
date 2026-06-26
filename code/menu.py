@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
+
 import pygame
 import pygame.image
 import pygame.transform
@@ -30,6 +32,8 @@ class Menu:
         menu_option = 0
         pygame.mixer.music.load('./asset/menu song.wav')
         pygame.mixer.music.play(-1)
+        pygame.mixer_music.set_volume(0.3)
+
 
         # DRAW IMAGES
         while True:
@@ -54,7 +58,7 @@ class Menu:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
-                    quit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_DOWN:
                         if menu_option < len(MENU_OPTIONS) - 1:
