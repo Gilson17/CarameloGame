@@ -6,6 +6,7 @@ from code.const import WINDOW_WIDTH, WINDOW_HEIGHT, MENU_OPTIONS
 from code.level import Level
 from code.menu import Menu
 
+
 class Game:
     def __init__(self):
         pygame.init()
@@ -24,7 +25,6 @@ class Game:
             if menu_return == MENU_OPTIONS[0]:
                 level = Level(self.window, 'level 1', menu_return)
                 level_return = level.run()
-
 
                 if isinstance(level_return, tuple):
                     status, player_score = level_return

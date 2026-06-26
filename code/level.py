@@ -84,7 +84,6 @@ class Level:
                             (WINDOW_HEIGHT - 120, 5))
             self.level_text(20, f'fps:{clock.get_fps():.0f}', C_WHITE, (10, 5))
 
-
             for ent in self.entity_list:
                 if isinstance(ent, Player):
                     self.level_text(20, f'score: {ent.score}', C_ORANGE, (window_size[0] - 120, 5))

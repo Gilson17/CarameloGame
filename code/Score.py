@@ -8,7 +8,6 @@ from code.DBProxy import DBProxy
 from code.const import VIRTUAL_WIDTH, VIRTUAL_HEIGHT, C_YELLOW, C_WHITE, SCORE_POS
 
 
-
 class Score:
     def __init__(self, window):
         self.window = window
@@ -55,7 +54,6 @@ class Score:
         pygame.mixer.music.load('./asset/ScoreMusic.ogg')
         pygame.mixer_music.play(-1)
         pygame.mixer_music.set_volume(0.3)
-
 
         if current_game_data is not None:
             status, pontos = current_game_data

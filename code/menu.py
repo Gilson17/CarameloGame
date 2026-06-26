@@ -8,7 +8,7 @@ import pygame.transform
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.const import WINDOW_WIDTH, C_YELLOW, MENU_OPTIONS, C_WHITE, C_GREEN, VIRTUAL_WIDTH, VIRTUAL_HEIGHT
+from code.const import WINDOW_WIDTH, C_YELLOW, MENU_OPTIONS, C_WHITE, C_GREEN
 
 
 class Menu:
@@ -33,7 +33,6 @@ class Menu:
         pygame.mixer.music.load('./asset/menu song.wav')
         pygame.mixer.music.play(-1)
         pygame.mixer_music.set_volume(0.3)
-
 
         # DRAW IMAGES
         while True:
